@@ -913,22 +913,22 @@ span.mh-extract {
 }
 
 span.mh-extract-red {
-    @extend span.mh-extract;
+    @extend .mh-extract;
     background-color: red;
 }
 
 span.mh-extract-orange {
-    @extend span.mh-extract;
+    @extend .mh-extract;
     background-color: orange;
 }
 
 span.mh-extract-white {
-    @extend span.mh-extract;
+    @extend .mh-extract;
     background-color: white;
 }
 
 span.mh-extract-unknown {
-    @extend span.mh-extract;
+    @extend .mh-extract;
     background-color: black;
 }
 

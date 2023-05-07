@@ -1,6 +1,8 @@
 /target
 .vscode
+*.map
 temp
 mhrice.config
 node_modules
 wwylele.*
+/src/extract/static/style/bulma
