@@ -62,7 +62,9 @@ pub const LANGUAGE_MAP: [Option<(&str, &str)>; 32] = [
 
 pub fn head_common(hash_store: &HashStore) -> Vec<Box<dyn MetadataContent<String>>> {
     let main_css = format!("/mhrice.css?h={}", hash_store.get(FileTag::MainCss));
+    let dark_css = format!("/mhrice-dark.css?h={}", hash_store.get(FileTag::DarkCss));
     let main_js = format!("/mhrice.js?h={}", hash_store.get(FileTag::MainJs));
+    let dark_js = format!("/mhrice-dark.js?h={}", hash_store.get(FileTag::DarkJs));
     let fa = format!(
         "/fontawesome/fontawesome.min.js?h={}",
         hash_store.get(FileTag::Fa)
@@ -81,11 +83,12 @@ pub fn head_common(hash_store: &HashStore) -> Vec<Box<dyn MetadataContent<String
         html!(<meta name="viewport" content="width=device-width, initial-scale=1" />),
         html!(<meta name="keywords" content="Monster Hunter,Monster Hunter Rise,MHR,MHRise,Database,Guide,Hitzone,HZV"/>),
         html!(<link rel="icon" type="image/png" href="/favicon.png" />),
-        html!(<link rel="stylesheet" href={main_css} />),
+        html!(<link rel="stylesheet" id="stylething" href={main_css} />),
         html!(<link rel="stylesheet" href={part_color} />),
         html!(<link rel="stylesheet" href="/resources/item_color.css" />),
         html!(<link rel="stylesheet" href="/resources/rarity_color.css" />),
         html!(<script src={main_js}/>),
+        html!(<script defer=true src={dark_js}/>),
         html!(<script defer=true src={fa_brand}/>),
         html!(<script defer=true src={fa_solid}/>),
         html!(<script defer=true src={fa}/>),
@@ -224,6 +227,11 @@ pub fn navbar() -> Box<nav<String>> {
                     <a class="navbar-item" href="/misc/achievement.html">"Guild card titles"</a>
                 </div>
                 </div>
+                // button testing
+                <button id="dark-mode-toggle" class="dark-mode-toggle navbar-item">
+                    <img src="/darkbuttonwhite.png" alt="dark mode toggle" height="52"/>
+                </button>
+                // end button testing
             </div>
         </div>
     </div></nav>)
@@ -654,8 +662,16 @@ pub fn gen_static(hash_store: &mut HashStore, output: &impl Sink) -> Result<()> 
         .write_all(include_bytes!("static/mhrice.css"))?;
 
     output
+        .create_with_hash("mhrice-dark.css", FileTag::DarkCss, hash_store)?
+        .write_all(include_bytes!("static/mhrice-dark.css"))?;
+
+    output
         .create_with_hash("mhrice.js", FileTag::MainJs, hash_store)?
         .write_all(include_bytes!("static/mhrice.js"))?;
+
+    output
+        .create_with_hash("mhrice-dark.js", FileTag::DarkJs, hash_store)?
+        .write_all(include_bytes!("static/mhrice-dark.js"))?;
 
     output
         .create_with_hash("masonry.pkgd.min.js", FileTag::Masonry, hash_store)?
@@ -664,6 +680,9 @@ pub fn gen_static(hash_store: &mut HashStore, output: &impl Sink) -> Result<()> 
     output
         .create("favicon.png")?
         .write_all(include_bytes!("static/favicon.png"))?;
+    output
+        .create("darkbuttonwhite.png")?
+        .write_all(include_bytes!("static/darkbuttonwhite.png"))?;
     output
         .create("error.html")?
         .write_all(include_bytes!("static/error.html"))?;

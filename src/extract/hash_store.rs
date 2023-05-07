@@ -6,7 +6,9 @@ use std::{collections::HashMap, hash::Hash};
 #[derive(PartialEq, Eq, Hash, Clone, Copy, Debug)]
 pub enum FileTag {
     MainJs,
+    DarkJs,
     MainCss,
+    DarkCss,
     Fa,
     FaBrand,
     FaSolid,

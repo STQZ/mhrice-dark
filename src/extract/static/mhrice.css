@@ -9022,5 +9022,12 @@ ul.mh-achievements > li {
 ul.mh-achievements > li::before {
   content: "▸";
 }
-
+.dark-mode-toggle {
+    border: none;
+    padding: 0;
+    background: none;
+}
+.dark-mode-toggle:hover {
+    background-color: #00b89c;
+}
 /*# sourceMappingURL=mhrice.css.map */
