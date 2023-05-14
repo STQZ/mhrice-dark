@@ -40,6 +40,177 @@ $sidebar-button-height: 50px;
 
 }
 
+.darkmode {
+    background-color: #2b2a33;
+    color: #fff;
+    body {
+        color: #fff;
+    }
+    a {
+        color: #5391f3;
+        &:hover {
+            color: #5474ff;
+        }
+    }
+    pre {
+        background-color: #43424f;
+        color: #fff;
+    }
+    table {
+        th {
+            color: #363636;
+        }
+    }
+    .navbar-dropdown {
+        background-color: #43424f;
+        border-top: 2px solid #2b2a33;
+    }
+    .menu-list {
+        a {
+            color: #c6c6c6;
+            &.is-active {
+                background-color: #485fc7;
+                color: #fff;
+            }
+            &:hover {
+                color: #363636;
+            }
+        }
+    }
+    .menu-label {
+        color: #c6c6c6;
+    }
+    .tabs a,
+    .mh-filters a {
+        color: #fff;
+    }
+    .tabs a:hover,
+    .mh-filters a:hover {
+        border-bottom-color: #c6c6c6;
+        color: #c6c6c6;
+    }
+    .content h1,
+    main h1,
+    .content h2,
+    main h2,
+    .content h3,
+    main h3,
+    .content h4,
+    main h4,
+    .content h5,
+    main h5,
+    .content h6,
+    main h6 {
+        color: #fff;
+    }
+    .content table thead td,
+    main table thead td,
+    .content table thead th,
+    main table thead th {
+        color: #fff;
+    }
+    .input,
+    .textarea,
+    .select select {
+        background-color: #43424f;
+        color: #fff;
+    }
+    .select select::-moz-placeholder,
+    .textarea::-moz-placeholder,
+    .input::-moz-placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .select select::-webkit-input-placeholder,
+    .textarea::-webkit-input-placeholder,
+    .input::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .select select:-moz-placeholder,
+    .textarea:-moz-placeholder,
+    .input:-moz-placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .select select:-ms-input-placeholder,
+    .textarea:-ms-input-placeholder,
+    .input:-ms-input-placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .select {
+        &:not(.is-multiple):not(.is-loading)::after {
+            border-color: #5391f3;
+        }
+        &:not(.is-multiple):not(.is-loading):hover {
+            &::after {
+                border-color: #5474ff;
+            }
+        }
+    }
+    .control.has-icons-left .input:focus ~ .icon,
+    .control.has-icons-left .select:focus ~ .icon,
+    .control.has-icons-right .input:focus ~ .icon,
+    .control.has-icons-right .select:focus ~ .icon {
+        color: #dbdbdb;
+    }
+    aside {
+        & > .aside-button {
+            background-color: #2b2a33;
+            &:hover {
+                background-color: #43424f;
+            }
+        }
+        & > .side-menu {
+            .mh-lang-menu {
+                color: #c6c6c6;
+            }
+        }
+    }
+    #left-aside {
+    background-color: #2b2a33;
+    }
+    #right-aside {
+    background-color: #2b2a33;
+    }
+    ul {
+        &.mh-armor-series-list {
+            & > li {
+                &:hover {
+                    background-color: #43424f;
+                }
+            }
+        }
+        &.mh-list-monster {
+            & > li {
+                &:hover {
+                    background-color: #43424f;
+                }
+            }
+        }
+    }
+    .mh-color-diagram-switch {
+        &:hover {
+            background-color: #43424f;
+        }
+    }
+    .mh-weapon-tree-grid {
+        >ul {
+            .mh-weapon-tree-label:hover {
+                .mh-weapon-name {
+                    background-color: #43424f;
+                }
+            }
+        }
+    }
+}
+
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    &:hover {
+        background-color: #00b89c;
+    }
+}
+
 nav {
     @extend .navbar, .is-primary;
 
