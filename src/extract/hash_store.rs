@@ -8,7 +8,6 @@ pub enum FileTag {
     MainJs,
     DarkJs,
     MainCss,
-    DarkCss,
     Fa,
     FaBrand,
     FaSolid,
